@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    background-color: #7c1dcf;
+    color: white;
+    width: 35%;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 80px; /* Ajusta o tamanho da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+.form-container {
+    padding: 30px; /* Adiciona espaçamento interno */
+    width: 65%;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px; /* Aumenta o preenchimento interno */
+    margin: 10px 0; /* Adiciona espaçamento vertical entre os elementos */
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Garante que padding não ultrapasse a largura */
+}
+
+button {
+    background-color: #7c1dcf;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #5a14a1;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Espaçamento entre os botões */
+}
