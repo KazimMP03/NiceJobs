@@ -1,36 +1,42 @@
-// Cadastro-1.js
+// cadastro-1.js
+
+// Função para aplicar a máscara de CPF
+function mascaraCPF(cpf) {
+    cpf = cpf.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // Aplica a máscara
+    return cpf;
+}
+
+// Função para remover a máscara do CPF
+function removerMascaraCPF(cpf) {
+    cpf = cpf.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    return cpf;
+}
+
+// Adiciona a máscara de CPF no campo de entrada
+document.getElementById('cpf').addEventListener('input', function(event) {
+    event.target.value = mascaraCPF(event.target.value);
+});
 
 document.querySelector('#proxima').addEventListener('click', async function() {
     const nome = document.getElementById('nome').value;
-    const cpf = document.getElementById('cpf').value;
+    let cpf = document.getElementById('cpf').value;
     const data_nascimento = document.getElementById('data_nascimento').value;
 
+    // Verifica se os campos estão preenchidos
     if (!nome || !cpf || !data_nascimento) {
         alert("Por favor, preencha todos os campos!");
         return;
     }
 
-    const formData = new FormData();
-    formData.append('nome', nome);
-    formData.append('cpf', cpf);
-    formData.append('data_nascimento', data_nascimento);
+    // Remove a máscara do CPF antes de enviar
+    cpf = removerMascaraCPF(cpf);
 
-    try {
-        // Enviando dados para o backend
-        const response = await fetch('../../backend/controllers/create_user.php', {
-            method: 'POST',
-            body: formData,
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            alert('Dados enviados com sucesso!');
-            window.location.href = './cadastro-2.html';
-        } else {
-            alert(`Erro: ${data.message}`);
-        }
-    } catch (error) {
-        console.error('Erro ao enviar os dados:', error);
-    }
+    // Salva os dados na sessionStorage para mandar para cadastro 2
+    sessionStorage.setItem('nome', nome);
+    sessionStorage.setItem('cpf', cpf);
+    sessionStorage.setItem('data_nascimento', data_nascimento);
+    
+    // Redireciona para cadastro-2
+    window.location.href = './cadastro-2.html';
 });

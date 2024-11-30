@@ -16,8 +16,9 @@ class UserModel {
             ':cpf' => $cpf,
             ':data_nascimento' => $data_nascimento,
             ':email' => $email,
-            ':senha' => password_hash($senha, PASSWORD_BCRYPT),
+            ':senha' => $senha
         ]);
     }
 }
 ?>
+
