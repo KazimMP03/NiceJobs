@@ -1,0 +1,3 @@
+Ainda falta deletar, consultar e editar. 
+Falta verificação na página de login para ir para ir para página home.
+Criar a página home que tem só algo dizendo que entrou no home.
