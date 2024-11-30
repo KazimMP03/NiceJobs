@@ -24,8 +24,10 @@ document.querySelector('#finalizar').addEventListener('click', async function() 
     formData.append('email', email);
     formData.append('senha', senha);
 
+    // Comentei pois response era para debuggar
     try {
-        const response = await fetch('../../backend/controllers/create_user.php', {
+        // const response = 
+        await fetch('../../backend/controllers/create_user.php', {
             method: 'POST',
             body: formData,
         });
